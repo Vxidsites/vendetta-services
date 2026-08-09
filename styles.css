@@ -689,24 +689,8 @@ footer {
     opacity: 1;
 }
 
-/* Easter Egg Overlay */
-#easter-egg-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.95);
-    z-index: 99999;
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    animation: eggGlitch 0.2s infinite;
-}
-@keyframes eggGlitch {
-    0% { transform: translate(0) }
+
+
     20% { transform: translate(-5px, 5px) }
     40% { transform: translate(-5px, -5px) }
     60% { transform: translate(5px, 5px) }
@@ -715,7 +699,27 @@ footer {
 }
 
 
-/* Easter Egg Admin Theme */
-body.admin-theme {
-    --accent-red: #00ffcc; /* Switches all red accents to a cyber cyan */
+
+
+
+/* Scroll Progress Bar */
+#scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: var(--accent-red);
+    width: 0%;
+    z-index: 100000;
+    transition: width 0.1s;
+    box-shadow: 0 0 10px var(--accent-red);
+}
+
+/* Smooth Page Transitions */
+.page-transition {
+    animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }

@@ -312,29 +312,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     
-    // --- SECRET KEYBOARD EASTER EGG ---
-    let konamiCode = 'vendetta';
-    let keyIndex = 0;
-    const easterEgg = document.getElementById('easter-egg-overlay');
+    
 
-    document.addEventListener('keydown', (e) => {
-        if (e.key.toLowerCase() === konamiCode[keyIndex]) {
-            keyIndex++;
-            if (keyIndex === konamiCode.length) {
-                // Toggle Admin Theme
-                document.body.classList.toggle('admin-theme');
-                
-                // Trigger Flash Overlay
-                if (easterEgg) {
-                    easterEgg.style.display = 'flex';
-                    setTimeout(() => {
-                        easterEgg.style.display = 'none';
-                    }, 1000); // Only flash for 1 second now
-                }
-                keyIndex = 0;
-            }
-        } else {
-            keyIndex = 0;
+
+    // --- SCROLL PROGRESS BAR ---
+    window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        const progressBar = document.getElementById('scroll-progress-bar');
+        if (progressBar) {
+            progressBar.style.width = scrolled + '%';
         }
     });
 
