@@ -507,3 +507,72 @@ footer {
         padding: 4rem;
     }
 }
+
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-black);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--accent-red);
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #ff3333;
+    box-shadow: 0 0 10px var(--accent-red);
+}
+
+/* Glitch Hover Effect for Glitch Text */
+.glitch-text:hover {
+    animation: textGlitchHover 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+    color: #fff;
+    text-shadow: 2px 2px var(--accent-red), -2px -2px #00ffff;
+}
+
+@keyframes textGlitchHover {
+    0% { transform: translate(0) }
+    20% { transform: translate(-2px, 2px) }
+    40% { transform: translate(-2px, -2px) }
+    60% { transform: translate(2px, 2px) }
+    80% { transform: translate(2px, -2px) }
+    100% { transform: translate(0) }
+}
+
+
+/* Terminal Loader */
+.terminal {
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--accent-red);
+    font-size: 1.5rem;
+    text-shadow: 0 0 5px var(--accent-red);
+    text-align: left;
+    width: 80%;
+    max-width: 600px;
+}
+.terminal-line {
+    margin-bottom: 0.5rem;
+    min-height: 1.5rem;
+}
+.terminal-cursor {
+    display: inline-block;
+    animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+
+/* Ember Canvas Background */
+#ember-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}

@@ -9,14 +9,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Preloader -->
-    <div id="loader" class="loader">
-        <h2 class="glitch-text" data-text="LOADING VENDETTA...">LOADING VENDETTA...</h2>
-        <div class="progress-bar"><div class="progress"></div></div>
+    <!-- Terminal Boot-Up Screen -->
+    <div id="loader">
+        <div class="terminal">
+            <div class="terminal-line" id="term-line-1"></div>
+            <div class="terminal-line" id="term-line-2"></div>
+            <div class="terminal-line" id="term-line-3"></div>
+            <div class="terminal-cursor" id="term-cursor">_</div>
+        </div>
     </div>
 
     <!-- Ambient Liquid Glass Background -->
-    <div class="ambient-glow"></div>
+    <div class="ambient-background"></div>
+    <canvas id="ember-canvas"></canvas>
     <div class="vignette"></div>
 
     <nav class="navbar liquid-panel">
@@ -173,6 +178,8 @@
         </div>
     </footer>
 
+    <!-- 3D Tilt Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
