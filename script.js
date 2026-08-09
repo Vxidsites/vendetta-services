@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = gba(255, 51, 51, \)\; // var(--accent-red)
+                ctx.fillStyle = `rgba(255, 51, 51, ${this.opacity})`; // var(--accent-red)
                 ctx.fill();
             }
         }
