@@ -37,24 +37,4 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.observe(reveal);
     });
 
-    // --- AMBIENT AUDIO TOGGLE ---
-    const audioToggle = document.getElementById("audio-toggle");
-    const ambientAudio = document.getElementById("ambient-audio");
-    let isPlaying = false;
     
-    if(ambientAudio) ambientAudio.volume = 0.2;
-    
-    if(audioToggle && ambientAudio) {
-        audioToggle.addEventListener("click", () => {
-            if(isPlaying) {
-                ambientAudio.pause();
-                audioToggle.innerHTML = `<i class="fas fa-volume-mute"></i>`;
-                isPlaying = false;
-            } else {
-                ambientAudio.play().catch(e => console.log("Audio play prevented by browser"));
-                audioToggle.innerHTML = `<i class="fas fa-volume-up"></i>`;
-                isPlaying = true;
-            }
-        });
-    }
-});
