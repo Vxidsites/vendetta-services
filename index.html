@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-outline" id="cursor-outline"></div>
+
     <!-- Preloader -->
     <div id="loader" class="loader">
         <h2 class="glitch-text" data-text="LOADING VENDETTA...">LOADING VENDETTA...</h2>
@@ -118,6 +122,15 @@
             <p>&copy; 2026 Vendetta Network. We run the underground.</p>
         </div>
     </footer>
+
+    <!-- Ambient Audio & Toggle -->
+    <audio id="ambient-audio" loop>
+        <!-- User needs to add an ambient.mp3 file to the folder -->
+        <source src="ambient.mp3" type="audio/mpeg">
+    </audio>
+    <button id="audio-toggle" class="audio-toggle-btn liquid-panel">
+        <i class="fas fa-volume-mute"></i>
+    </button>
 
     <script src="script.js"></script>
 </body>

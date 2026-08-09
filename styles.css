@@ -405,3 +405,85 @@ footer {
     transform: translateY(0);
 }
 
+
+/* Custom Cursor & Hiding default */
+* {
+    cursor: none !important;
+}
+
+.cursor-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--accent-red);
+    position: fixed;
+    top: 0; left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 10000;
+    pointer-events: none;
+}
+
+.cursor-outline {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--accent-red);
+    position: fixed;
+    top: 0; left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 10000;
+    pointer-events: none;
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.cursor-hover {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 26, 26, 0.1);
+    border-color: transparent;
+}
+
+/* Mouse Particles */
+.particle {
+    position: fixed;
+    background: var(--accent-red);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    box-shadow: 0 0 10px var(--accent-red);
+    animation: particleFade 1s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes particleFade {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(0); opacity: 0; }
+}
+
+/* Audio Toggle Button */
+.audio-toggle-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--accent-red);
+    font-size: 1.2rem;
+    cursor: none; /* Let custom cursor handle it */
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+.audio-toggle-btn:hover {
+    background: rgba(255, 26, 26, 0.2);
+    box-shadow: 0 0 20px var(--accent-glow);
+    transform: scale(1.1);
+}
+
