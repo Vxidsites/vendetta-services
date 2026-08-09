@@ -37,4 +37,4 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.observe(reveal);
     });
 
-    
+    });
