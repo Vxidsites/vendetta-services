@@ -576,3 +576,50 @@ footer {
     z-index: -1;
     pointer-events: none;
 }
+
+
+/* Custom Text Highlight */
+::selection {
+    background: var(--accent-red);
+    color: var(--bg-black);
+}
+::-moz-selection {
+    background: var(--accent-red);
+    color: var(--bg-black);
+}
+
+/* Hacker Scanline Overlay */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0),
+        rgba(255,255,255,0) 50%,
+        rgba(0,0,0,0.2) 50%,
+        rgba(0,0,0,0.2)
+    );
+    background-size: 100% 4px;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+/* Cursor Spotlight Illumination */
+.cursor-spotlight {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 51, 51, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Below the main content, but illuminates background */
+    transition: width 0.3s, height 0.3s;
+    mix-blend-mode: screen;
+}

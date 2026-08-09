@@ -193,4 +193,37 @@ document.addEventListener('DOMContentLoaded', () => {
         animateEmbers();
     }
 
+
+    // --- CURSOR SPOTLIGHT ---
+    const spotlight = document.getElementById('spotlight');
+    if (spotlight) {
+        window.addEventListener('mousemove', (e) => {
+            spotlight.style.left = e.clientX + 'px';
+            spotlight.style.top = e.clientY + 'px';
+        });
+    }
+
+    // --- MAGNETIC BUTTONS ---
+    const magneticElements = document.querySelectorAll('.cta-button, .carousel-btn');
+    
+    magneticElements.forEach((el) => {
+        el.addEventListener('mousemove', (e) => {
+            const rect = el.getBoundingClientRect();
+            const h = rect.width / 2;
+            const v = rect.height / 2;
+            
+            // Calculate distance from center of button
+            const x = e.clientX - rect.left - h;
+            const y = e.clientY - rect.top - v;
+            
+            // Move button slightly towards cursor (magnetic pull factor: 0.3)
+            el.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        });
+        
+        el.addEventListener('mouseleave', () => {
+            // Reset position
+            el.style.transform = 'translate(0px, 0px)';
+        });
+    });
+
 });
