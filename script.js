@@ -350,8 +350,8 @@ document.addEventListener('DOMContentLoaded', () => {
             meteor.remove();
         }, duration * 1000);
         
-        // Spawn the next one randomly between 500ms and 3000ms
-        setTimeout(spawnMeteor, Math.random() * 2500 + 500);
+        // Spawn the next one rapidly
+        setTimeout(spawnMeteor, Math.random() * 500 + 100);
     }
     
     // Start meteor shower
