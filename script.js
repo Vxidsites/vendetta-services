@@ -226,4 +226,116 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+
+    // --- LEAVE-PAGE TAB NOTIFICATION ---
+    let originalTitle = document.title;
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            document.title = '⚠️ NETWORK COMPROMISED!';
+        } else {
+            document.title = originalTitle;
+        }
+    });
+
+    // --- CUSTOM RIGHT CLICK MENU ---
+    const customMenu = document.getElementById('custom-menu');
+    const menuClose = document.getElementById('menu-close');
+    
+    document.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        customMenu.style.display = 'block';
+        
+        // Prevent menu from going off-screen
+        let x = e.clientX;
+        let y = e.clientY;
+        if (x + 200 > window.innerWidth) x = window.innerWidth - 200;
+        if (y + 150 > window.innerHeight) y = window.innerHeight - 150;
+        
+        customMenu.style.left = x + 'px';
+        customMenu.style.top = y + 'px';
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!customMenu.contains(e.target)) {
+            customMenu.style.display = 'none';
+        }
+    });
+    if (menuClose) {
+        menuClose.addEventListener('click', () => {
+            customMenu.style.display = 'none';
+        });
+    }
+
+    // --- LIVE HACKER NOTIFICATIONS ---
+    const notifContainer = document.getElementById('notification-container');
+    const fakeLogs = [
+        '> Incoming connection blocked in sector 4.',
+        '> Security sweep active...',
+        '> Payout completed for Operative [REDACTED].',
+        '> Firewall integrity at 99.9%.',
+        '> Unauthorized access attempt thwarted.',
+        '> Encrypting outgoing traffic...',
+        '> Syndicate servers nominal.'
+    ];
+
+    if (notifContainer) {
+        setInterval(() => {
+            // 30% chance to show a notification every 5 seconds
+            if (Math.random() < 0.3) {
+                const notif = document.createElement('div');
+                notif.className = 'hacker-notify';
+                const randomText = fakeLogs[Math.floor(Math.random() * fakeLogs.length)];
+                
+                // Typing effect for notification
+                let charIdx = 0;
+                notifContainer.appendChild(notif);
+                
+                // Slide in
+                setTimeout(() => notif.classList.add('show'), 50);
+                
+                function typeNotif() {
+                    if (charIdx < randomText.length) {
+                        notif.innerHTML += randomText.charAt(charIdx);
+                        charIdx++;
+                        setTimeout(typeNotif, 20);
+                    } else {
+                        // Fade out after 4 seconds
+                        setTimeout(() => {
+                            notif.classList.remove('show');
+                            setTimeout(() => notif.remove(), 500);
+                        }, 4000);
+                    }
+                }
+                typeNotif();
+            }
+        }, 5000);
+    }
+
+    
+    // --- SECRET KEYBOARD EASTER EGG ---
+    let konamiCode = 'vendetta';
+    let keyIndex = 0;
+    const easterEgg = document.getElementById('easter-egg-overlay');
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key.toLowerCase() === konamiCode[keyIndex]) {
+            keyIndex++;
+            if (keyIndex === konamiCode.length) {
+                // Toggle Admin Theme
+                document.body.classList.toggle('admin-theme');
+                
+                // Trigger Flash Overlay
+                if (easterEgg) {
+                    easterEgg.style.display = 'flex';
+                    setTimeout(() => {
+                        easterEgg.style.display = 'none';
+                    }, 1000); // Only flash for 1 second now
+                }
+                keyIndex = 0;
+            }
+        } else {
+            keyIndex = 0;
+        }
+    });
+
 });
