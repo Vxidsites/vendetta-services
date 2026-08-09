@@ -441,3 +441,30 @@ footer {
     }
 }
 
+
+/* Overflow fixes */
+.founder-card {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.founder-info {
+    width: 100%;
+    overflow: hidden;
+}
+
+.founder-info h3 {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    font-size: clamp(1.5rem, 8vw, 3rem); /* Responsive font size */
+}
+
+.team-container {
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
