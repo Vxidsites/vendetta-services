@@ -359,3 +359,49 @@ footer {
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
+
+/* Loading Screen */
+#loader {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: var(--bg-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+#loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+.progress-bar {
+    width: 200px; height: 4px;
+    background: rgba(255,26,26,0.2);
+    margin-top: 20px;
+    border-radius: 2px;
+    overflow: hidden;
+}
+.progress {
+    width: 0%; height: 100%;
+    background: var(--accent-red);
+    box-shadow: 0 0 10px var(--accent-red);
+    animation: loadProgress 2s ease-in-out forwards;
+}
+@keyframes loadProgress {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+/* Scroll Reveal Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+

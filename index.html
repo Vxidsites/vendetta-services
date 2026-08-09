@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Preloader -->
+    <div id="loader" class="loader">
+        <h2 class="glitch-text" data-text="LOADING VENDETTA...">LOADING VENDETTA...</h2>
+        <div class="progress-bar"><div class="progress"></div></div>
+    </div>
+
     <!-- Ambient Liquid Glass Background -->
     <div class="ambient-glow"></div>
     <div class="vignette"></div>
@@ -43,7 +49,7 @@
                     <a href="https://discord.gg/3mjUGsxVy8" target="_blank" class="btn btn-glow">Enter the Network</a>
                 </div>
 
-                <div class="stats-container liquid-panel">
+                <div class="stats-container liquid-panel reveal">
                     <div class="stat-box">
                         <i class="fas fa-users accent"></i>
                         <h3 id="discord-member-count">11+</h3>
@@ -65,21 +71,21 @@
 
         <!-- New Free Heist System Section -->
         <section id="system" class="system-section">
-            <h2 class="section-title">THE <span class="accent">SYSTEM</span></h2>
-            <p class="section-desc">We do not accept real money. We operate on a strict invite-only economy.</p>
+            <h2 class="section-title reveal">THE <span class="accent">SYSTEM</span></h2>
+            <p class="section-desc reveal">We do not accept real money. We operate on a strict invite-only economy.</p>
             
             <div class="steps-grid">
-                <div class="step-card liquid-panel">
+                <div class="step-card liquid-panel reveal">
                     <div class="step-icon"><i class="fas fa-gift"></i></div>
                     <h3>1ST HEIST FREE</h3>
                     <p>Everyone who joins the network gets their first modded heist completely free. No strings attached. Collect your 3.1M payout instantly.</p>
                 </div>
-                <div class="step-card liquid-panel">
+                <div class="step-card liquid-panel reveal">
                     <div class="step-icon"><i class="fas fa-user-plus"></i></div>
                     <h3>INVITE TO EARN</h3>
                     <p>Want unlimited back-to-back heists? Generate your custom invite link. For every 3 people that join through your link, you earn another heist.</p>
                 </div>
-                <div class="step-card liquid-panel">
+                <div class="step-card liquid-panel reveal">
                     <div class="step-icon"><i class="fas fa-bolt"></i></div>
                     <h3>INSTANT SKIP</h3>
                     <p>Our Hosts use modded scripts to instantly skip all setups. You load into the finale and get the payout cutscene immediately.</p>
@@ -91,10 +97,10 @@
         </section>
 
         <section id="vouches" class="vouches-section">
-            <h2 class="section-title">WALL OF <span class="accent">FAME</span></h2>
-            <p class="section-desc">Proof of execution. Real 3.1M+ payouts from our Operatives.</p>
+            <h2 class="section-title reveal">WALL OF <span class="accent">FAME</span></h2>
+            <p class="section-desc reveal">Proof of execution. Real 3.1M+ payouts from our Operatives.</p>
             
-            <div class="marquee-container">
+            <div class="marquee-container reveal">
                 <div class="marquee-content" id="marquee-content">
                     <div class="vouch-placeholder liquid-panel"><i class="fas fa-image"></i> Vouch 1</div>
                     <div class="vouch-placeholder liquid-panel"><i class="fas fa-image"></i> Vouch 2</div>
