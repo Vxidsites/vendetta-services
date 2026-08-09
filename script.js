@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         function updateCarousel() {
             // Slide track
-            track.style.transform = \	ranslateX(-\%)\;
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
             
             // Update classes for scaling and opacity
             cards.forEach((card, index) => {
