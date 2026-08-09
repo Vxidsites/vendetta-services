@@ -37,4 +37,50 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.observe(reveal);
     });
 
-    });
+    
+    // --- TEAM CAROUSEL LOGIC ---
+    const track = document.getElementById('team-track');
+    if (track) {
+        const cards = Array.from(track.children);
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        
+        let currentIndex = 0;
+        
+        // Init active slide
+        cards[currentIndex].classList.add('active-slide');
+        
+        function updateCarousel() {
+            // Slide track
+            track.style.transform = \	ranslateX(-\%)\;
+            
+            // Update classes for scaling and opacity
+            cards.forEach((card, index) => {
+                if (index === currentIndex) {
+                    card.classList.add('active-slide');
+                } else {
+                    card.classList.remove('active-slide');
+                }
+            });
+        }
+        
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < cards.length - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0; // wrap around to beginning
+            }
+            updateCarousel();
+        });
+        
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = cards.length - 1; // wrap around to end
+            }
+            updateCarousel();
+        });
+    }
+
+});

@@ -382,12 +382,7 @@ footer {
     background: linear-gradient(to bottom, rgba(255,26,26,0.05), var(--glass-bg));
 }
 
-@media(min-width: 768px) {
-    .founder-card {
-        flex-direction: row;
-        text-align: left;
-    }
-}
+
 
 .founder-pfp {
     width: 200px;
@@ -423,22 +418,9 @@ footer {
     max-width: 500px;
 }
 
-.team-container {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
 
-@media(min-width: 1000px) {
-    .team-container {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    .founder-card {
-        flex: 1 1 400px;
-        max-width: 48%;
-    }
+
+
 }
 
 
@@ -456,15 +438,72 @@ footer {
 }
 
 .founder-info h3 {
-    word-break: break-word;
-    overflow-wrap: break-word;
+    
     max-width: 100%;
     font-size: clamp(1.5rem, 8vw, 3rem); /* Responsive font size */
 }
 
-.team-container {
-    width: 100%;
-    box-sizing: border-box;
-    overflow-x: hidden;
+
+
+
+
+/* Carousel Styles */
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: visible;
 }
 
+.carousel-track-wrapper {
+    overflow: hidden;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.team-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.founder-card {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 3rem;
+    opacity: 0.3;
+    transform: scale(0.85);
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.founder-card.active-slide {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.carousel-btn {
+    background: transparent;
+    border: none;
+    color: var(--accent-red);
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
+    padding: 1rem;
+    transition: text-shadow 0.3s, transform 0.3s;
+}
+
+.carousel-btn:hover {
+    text-shadow: 0 0 15px var(--accent-red);
+    transform: scale(1.1);
+}
+
+@media(min-width: 768px) {
+    .founder-card {
+        padding: 4rem;
+    }
+}
