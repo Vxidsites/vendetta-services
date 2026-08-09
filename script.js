@@ -326,4 +326,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+
+    // --- FALLING FIREBALLS / METEORS ---
+    function spawnMeteor() {
+        const meteor = document.createElement('div');
+        meteor.classList.add('meteor');
+        
+        // Random start position (mostly from top right or top edge)
+        const startX = Math.random() * window.innerWidth + 200; // start slightly offscreen right
+        const startY = -100;
+        
+        // Random fall speed (between 1s and 3s)
+        const duration = Math.random() * 2 + 1;
+        
+        meteor.style.left = startX + 'px';
+        meteor.style.top = startY + 'px';
+        meteor.style.animationDuration = duration + 's';
+        
+        document.body.appendChild(meteor);
+        
+        // Remove after animation finishes
+        setTimeout(() => {
+            meteor.remove();
+        }, duration * 1000);
+        
+        // Spawn the next one randomly between 500ms and 3000ms
+        setTimeout(spawnMeteor, Math.random() * 2500 + 500);
+    }
+    
+    // Start meteor shower
+    setTimeout(spawnMeteor, 2000);
+
 });
