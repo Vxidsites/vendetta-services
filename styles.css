@@ -85,6 +85,9 @@ body {
     list-style: none;
     display: flex;
     gap: 40px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .nav-links li {
