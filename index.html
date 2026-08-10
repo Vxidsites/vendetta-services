@@ -37,43 +37,48 @@
     <main class="website-content">
         <!-- Dashboard View -->
         <section id="home" class="view-section active-view">
-            <div class="view-content-wrapper">
-                <h1 class="hero-title">System Overview</h1>
-                
-                <div class="stats-grid">
-                    <div class="stat-card glass-panel-inner">
-                        <i class="fas fa-users accent"></i>
-                        <div class="stat-info">
-                            <h3>48+</h3>
-                            <p>Members</p>
+            <div class="full-height-center">
+                <div class="view-content-wrapper">
+                    <h1 class="hero-title">System Overview</h1>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card glass-panel-inner">
+                            <i class="fas fa-users accent"></i>
+                            <div class="stat-info">
+                                <h3>48+</h3>
+                                <p>Members</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="stat-card glass-panel-inner">
-                        <i class="fas fa-shield-alt accent"></i>
-                        <div class="stat-info">
-                            <h3>0%</h3>
-                            <p>Ban Risk</p>
+                        <div class="stat-card glass-panel-inner">
+                            <i class="fas fa-shield-alt accent"></i>
+                            <div class="stat-info">
+                                <h3>0%</h3>
+                                <p>Ban Risk</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="stat-card glass-panel-inner">
-                        <i class="fas fa-gem accent"></i>
-                        <div class="stat-info">
-                            <h3>3.1M</h3>
-                            <p>Max Payouts</p>
+                        <div class="stat-card glass-panel-inner">
+                            <i class="fas fa-gem accent"></i>
+                            <div class="stat-info">
+                                <h3>3.1M</h3>
+                                <p>Max Payouts</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="stat-card glass-panel-inner">
-                        <i class="fas fa-server accent"></i>
-                        <div class="stat-info">
-                            <h3>24/7</h3>
-                            <p>Uptime</p>
+                        <div class="stat-card glass-panel-inner">
+                            <i class="fas fa-server accent"></i>
+                            <div class="stat-info">
+                                <h3>24/7</h3>
+                                <p>Uptime</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="mission-panel glass-panel-inner" style="margin-top: 30px; border-left: 4px solid var(--accent);">
-                    <h2 style="font-size: 1.8rem; margin-bottom: 15px; text-shadow: 0 0 10px rgba(255,50,50,0.3);">Why We Host Free Heists</h2>
-                    <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;">
+            <div class="full-height-center">
+                <div class="premium-mission-card">
+                    <i class="fas fa-crown mission-icon"></i>
+                    <h2 class="mission-title">Why We Host Free Heists</h2>
+                    <p class="mission-text">
                         At Vendetta, we believe everyone deserves to experience the absolute best parts of the game without the endless, punishing grind. 
                         We host 100% free heists and money drops because we want to give back to the community and help you bypass the tedious leveling. 
                         We're not just another server—we are building an empire where players thrive together.
@@ -84,26 +89,28 @@
 
         <!-- Services View -->
         <section id="services" class="view-section">
-            <div class="view-content-wrapper">
-                <h1 class="hero-title">Free Services</h1>
-                <div class="services-grid">
-                    <div class="service-card glass-panel-inner">
-                        <i class="fas fa-sack-dollar"></i>
-                        <h3>Free Heists</h3>
-                        <p>100% free money drops and heist skips. Currently paused.</p>
-                        <button class="glass-btn">Join Queue</button>
-                    </div>
-                    <div class="service-card glass-panel-inner">
-                        <i class="fas fa-car"></i>
-                        <h3>Custom Vehicles</h3>
-                        <p>Modded vehicles spawned directly to your garage.</p>
-                        <button class="glass-btn">Request</button>
-                    </div>
-                    <div class="service-card glass-panel-inner">
-                        <i class="fas fa-level-up-alt"></i>
-                        <h3>RP Boosts</h3>
-                        <p>Fast track your account level safely.</p>
-                        <button class="glass-btn">Learn More</button>
+            <div class="full-height-center">
+                <div class="view-content-wrapper">
+                    <h1 class="hero-title">Free Services</h1>
+                    <div class="services-grid">
+                        <div class="service-card glass-panel-inner">
+                            <i class="fas fa-sack-dollar"></i>
+                            <h3>Free Heists</h3>
+                            <p>100% free money drops and heist skips. Currently paused.</p>
+                            <button class="glass-btn">Join Queue</button>
+                        </div>
+                        <div class="service-card glass-panel-inner">
+                            <i class="fas fa-car"></i>
+                            <h3>Custom Vehicles</h3>
+                            <p>Modded vehicles spawned directly to your garage.</p>
+                            <button class="glass-btn">Request</button>
+                        </div>
+                        <div class="service-card glass-panel-inner">
+                            <i class="fas fa-level-up-alt"></i>
+                            <h3>RP Boosts</h3>
+                            <p>Fast track your account level safely.</p>
+                            <button class="glass-btn">Learn More</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -111,17 +118,19 @@
         
         <!-- Syndicate View -->
         <section id="syndicate" class="view-section">
-            <div class="hero-split">
-                <div class="hero-text">
-                    <h1 class="hero-title">The Syndicate</h1>
-                    <p class="hero-subtitle">The elite minds behind Vendetta Services. We are the architects of the new digital underground.</p>
-                </div>
-                <div class="carousel-container">
-                    <button id="carousel-prev" class="carousel-nav-btn"><i class="fas fa-chevron-left"></i></button>
-                    <div class="carousel-panel-wrapper glass-panel" id="carousel-panel">
-                        <!-- Content injected via JS -->
+            <div class="full-height-center">
+                <div class="hero-split">
+                    <div class="hero-text">
+                        <h1 class="hero-title">The Syndicate</h1>
+                        <p class="hero-subtitle">The elite minds behind Vendetta Services. We are the architects of the new digital underground.</p>
                     </div>
-                    <button id="carousel-next" class="carousel-nav-btn"><i class="fas fa-chevron-right"></i></button>
+                    <div class="carousel-container">
+                        <button id="carousel-prev" class="carousel-nav-btn"><i class="fas fa-chevron-left"></i></button>
+                        <div class="carousel-panel-wrapper glass-panel" id="carousel-panel">
+                            <!-- Content injected via JS -->
+                        </div>
+                        <button id="carousel-next" class="carousel-nav-btn"><i class="fas fa-chevron-right"></i></button>
+                    </div>
                 </div>
             </div>
         </section>
