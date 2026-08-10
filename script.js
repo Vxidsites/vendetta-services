@@ -42,4 +42,69 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Member Slider Modal Logic
+    const members = document.querySelectorAll('.member-card');
+    const modal = document.getElementById('member-modal');
+    const modalAvatar = document.getElementById('modal-avatar');
+    const modalName = document.getElementById('modal-name');
+    const modalRole = document.getElementById('modal-role');
+    const closeBtn = document.getElementById('close-modal');
+    const prevBtn = document.getElementById('prev-member');
+    const nextBtn = document.getElementById('next-member');
+
+    let currentIndex = 0;
+
+    function updateModal(index) {
+        const member = members[index];
+        const img = member.querySelector('.member-avatar');
+        const name = member.querySelector('h3').innerText;
+        const role = member.querySelector('.member-role').innerText;
+
+        if (img && img.tagName.toLowerCase() === 'img') {
+            modalAvatar.src = img.src;
+        } else {
+            modalAvatar.src = ''; 
+        }
+        
+        modalName.innerText = name;
+        modalRole.innerText = role;
+    }
+
+    members.forEach((card, index) => {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', () => {
+            currentIndex = index;
+            updateModal(currentIndex);
+            modal.classList.add('active');
+        });
+    });
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+    }
+
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : members.length - 1;
+            updateModal(currentIndex);
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex < members.length - 1) ? currentIndex + 1 : 0;
+            updateModal(currentIndex);
+        });
+    }
 });
