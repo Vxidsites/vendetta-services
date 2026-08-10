@@ -286,26 +286,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    const pricingModal = document.getElementById('pricing-modal');
-    const closeModalBtn = document.getElementById('close-modal-btn');
-    const priceButtons = document.querySelectorAll('#services .glass-btn');
-
-    if (pricingModal && closeModalBtn && priceButtons.length > 0) {
-        priceButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                pricingModal.classList.add('active');
-            });
-        });
-
-        closeModalBtn.addEventListener('click', () => {
-            pricingModal.classList.remove('active');
-        });
-
-        pricingModal.addEventListener('click', (e) => {
-            if (e.target === pricingModal) {
-                pricingModal.classList.remove('active');
-            }
-        });
-    }
-
 });
+
