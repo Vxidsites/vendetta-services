@@ -7,14 +7,23 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
-    <!-- Animated Fluid Background -->
-    <div class="fluid-bg">
-        <div class="blob red-blob-1"></div>
-        <div class="blob red-blob-2"></div>
-        <div class="blob black-blob"></div>
+    <!-- Cinematic Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <img src="logo.jpg" alt="Loading" class="loading-logo spinning-logo">
+            <h2 class="loading-text">INITIALIZING VENDETTA</h2>
+            <div class="loading-bar-container">
+                <div class="loading-bar" id="loading-progress"></div>
+            </div>
+            <p class="loading-subtext" id="loading-status">Connecting to Discord servers...</p>
+        </div>
     </div>
+
+    <!-- Particle Background -->
+    <div id="particles-js" class="fluid-bg"></div>
 
     <!-- Main Website UI -->
     <nav class="top-nav glass-panel">
@@ -45,8 +54,8 @@
                         <div class="stat-card glass-panel-inner">
                             <i class="fas fa-users accent"></i>
                             <div class="stat-info">
-                                <h3>48+</h3>
-                                <p>Members</p>
+                                <h3 id="member-count">--</h3>
+                            <p>Live Members</p>
                             </div>
                         </div>
                         <div class="stat-card glass-panel-inner">
@@ -75,17 +84,33 @@
             </div>
 
             <div class="mission-section-wrapper">
-                <div class="premium-mission-card">
-                    <div class="mission-text-content">
-                        <h2 class="mission-title">Why We Host Free Heists</h2>
-                        <p class="mission-text">
-                            At Vendetta, we believe everyone deserves to experience the absolute best parts of the game without the endless, punishing grind. 
-                            We host 100% free heists and money drops because we want to give back to the community and help you bypass the tedious leveling. 
-                            We're not just another server—we are building an empire where players thrive together.
-                        </p>
+                <div class="live-feeds-grid">
+                    <!-- Discord Announcements -->
+                    <div class="feed-panel premium-mission-card">
+                        <div class="feed-header">
+                            <i class="fab fa-discord feed-icon" style="color: #5865F2;"></i>
+                            <h2 class="feed-title">Live Announcements</h2>
+                        </div>
+                        <div class="feed-content" id="discord-feed">
+                            <!-- Skeleton Loaders -->
+                            <div class="skeleton-loader"></div>
+                            <div class="skeleton-loader"></div>
+                            <div class="skeleton-loader"></div>
+                        </div>
                     </div>
-                    <div class="mission-logo-content">
-                        <img src="logo.jpg" alt="Vendetta Logo" class="spinning-logo">
+
+                    <!-- GTA 5 News -->
+                    <div class="feed-panel premium-mission-card">
+                        <div class="feed-header">
+                            <i class="fas fa-newspaper feed-icon" style="color: var(--accent);"></i>
+                            <h2 class="feed-title">GTA 5 Online News</h2>
+                        </div>
+                        <div class="feed-content" id="gta-feed">
+                            <!-- Skeleton Loaders -->
+                            <div class="skeleton-loader"></div>
+                            <div class="skeleton-loader"></div>
+                            <div class="skeleton-loader"></div>
+                        </div>
                     </div>
                 </div>
             </div>

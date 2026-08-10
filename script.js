@@ -1,4 +1,150 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // 1. Initialize Particles Background
+    if (window.particlesJS) {
+        particlesJS('particles-js', {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#ff3333" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": false },
+                "size": { "value": 3, "random": true },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ff3333",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
+                    "push": { "particles_nb": 4 }
+                }
+            },
+            "retina_detect": true
+        });
+    }
+
+    // 2. Loading Screen & Live Data Sequence
+    const loadingScreen = document.getElementById('loading-screen');
+    const progressBar = document.getElementById('loading-progress');
+    const loadingStatus = document.getElementById('loading-status');
+    const discordFeed = document.getElementById('discord-feed');
+    const gtaFeed = document.getElementById('gta-feed');
+    const memberCount = document.getElementById('member-count');
+
+    // Simulate boot sequence
+    if (loadingScreen && progressBar) {
+        setTimeout(() => {
+            progressBar.style.width = '40%';
+            loadingStatus.innerText = 'Fetching live Discord data...';
+        }, 500);
+
+        setTimeout(() => {
+            progressBar.style.width = '80%';
+            loadingStatus.innerText = 'Connecting to Rockstar Newswire...';
+        }, 1500);
+
+        setTimeout(() => {
+            progressBar.style.width = '100%';
+            loadingStatus.innerText = 'System Online.';
+            
+            setTimeout(() => {
+                loadingScreen.style.opacity = '0';
+                loadingScreen.style.visibility = 'hidden';
+                
+                // Trigger Data Injection after load
+                injectLiveData();
+            }, 500);
+        }, 2500);
+    }
+
+    async function injectLiveData() {
+        if (!memberCount) return;
+        
+        try {
+            // Fetch live Discord data from our Render Python backend
+            const discordResponse = await fetch('https://vendetta-security-bot.onrender.com/api/discord');
+            if (discordResponse.ok) {
+                const data = await discordResponse.json();
+                
+                // Animate Member Count
+                let currentCount = 0;
+                const targetCount = data.member_count !== '--' ? data.member_count : 0; 
+                const step = Math.ceil(targetCount / 50) || 1;
+                const countInterval = setInterval(() => {
+                    currentCount += step;
+                    if (currentCount >= targetCount) {
+                        currentCount = targetCount;
+                        clearInterval(countInterval);
+                    }
+                    memberCount.innerText = currentCount;
+                }, 20);
+
+                // Inject Discord Announcements
+                if (discordFeed && data.announcements.length > 0) {
+                    discordFeed.innerHTML = '';
+                    data.announcements.forEach(msg => {
+                        const date = new Date(msg.timestamp).toLocaleDateString();
+                        discordFeed.innerHTML += `
+                            <div class="feed-item">
+                                <div class="feed-item-header">
+                                    <span><i class="fab fa-discord"></i> ${msg.author}</span>
+                                    <span>${date}</span>
+                                </div>
+                                <div class="feed-item-body">
+                                    ${msg.content}
+                                </div>
+                            </div>
+                        `;
+                    });
+                } else if (discordFeed) {
+                    discordFeed.innerHTML = '<div class="feed-item">No recent announcements found.</div>';
+                }
+            }
+        } catch (error) {
+            console.error("Failed to fetch live Discord data. Make sure the bot is running.", error);
+            if (discordFeed) discordFeed.innerHTML = '<div class="feed-item" style="color:red;">Error: Backend Offline. Make sure keep_alive.py is running.</div>';
+        }
+
+        // Fetch Live GTA News (using IGN GTA 5 RSS feed for real-time news)
+        try {
+            const newsResponse = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www.ign.com/rss/articles/feed?tags=gta-5');
+            if (newsResponse.ok) {
+                const data = await newsResponse.json();
+                if (gtaFeed && data.items) {
+                    gtaFeed.innerHTML = '';
+                    // Take top 3 news items
+                    data.items.slice(0, 3).forEach(item => {
+                        const date = new Date(item.pubDate).toLocaleDateString();
+                        gtaFeed.innerHTML += `
+                            <div class="feed-item">
+                                <div class="feed-item-header">
+                                    <span><i class="fas fa-rss"></i> News</span>
+                                    <span>${date}</span>
+                                </div>
+                                <div class="feed-item-body">
+                                    <strong><a href="${item.link}" target="_blank" style="color: #fff; text-decoration: none;">${item.title}</a></strong>
+                                </div>
+                            </div>
+                        `;
+                    });
+                }
+            }
+        } catch (error) {
+            console.error("Failed to fetch GTA news", error);
+            if (gtaFeed) gtaFeed.innerHTML = '<div class="feed-item" style="color:red;">Error fetching news.</div>';
+        }
+    }
+
     const navItems = document.querySelectorAll('.nav-links li');
     const views = document.querySelectorAll('.view-section');
     const toggles = document.querySelectorAll('.toggle-switch');
@@ -144,22 +290,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Scroll Animation Observer for Mission Card
-    const missionCard = document.querySelector('.premium-mission-card');
-    const textContent = document.querySelector('.mission-text-content');
-    const logoContent = document.querySelector('.mission-logo-content');
-
-    if (missionCard && textContent && logoContent) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    textContent.classList.add('animate-in');
-                    logoContent.classList.add('animate-in');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.3 });
-        
-        observer.observe(missionCard);
-    }
 });
