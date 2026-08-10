@@ -32,33 +32,11 @@
                 <li class="active" data-target="home"><i class="fas fa-home"></i> <span>Dashboard</span></li>
                 <li data-target="services"><i class="fas fa-server"></i> <span>Services</span></li>
                 <li data-target="syndicate"><i class="fas fa-users"></i> <span>The Syndicate</span></li>
-                <li data-target="settings"><i class="fas fa-cog"></i> <span>Customize</span></li>
+                <a href="https://discord.gg/vendetta" target="_blank" style="text-decoration: none;">
+                    <li><i class="fab fa-discord"></i> <span>Discord Server</span></li>
+                </a>
             </ul>
-
-            <div class="user-profile glass-panel-inner">
-                <div class="avatar">V</div>
-                <div class="user-info">
-                    <span class="username">Guest_001</span>
-                    <span class="status">Connected</span>
-                </div>
-                <i class="fas fa-chevron-down"></i>
-            </div>
         </nav>
-
-        <!-- Main Content Area -->
-        <main class="main-content">
-            <!-- Top Bar -->
-            <header class="top-bar glass-panel">
-                <div class="search-bar">
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Search operations...">
-                </div>
-                <div class="top-controls">
-                    <i class="fas fa-bolt active-icon"></i>
-                    <i class="fas fa-tachometer-alt"></i>
-                    <i class="fas fa-bell"></i>
-                </div>
-            </header>
 
             <!-- Dashboard View -->
             <section id="home" class="view-section active-view">
@@ -94,34 +72,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="content-panels">
-                    <div class="large-panel glass-panel-inner">
-                        <div class="panel-header">
-                            <h3>Performance Adjustments</h3>
-                            <div class="toggle-switch active"></div>
-                        </div>
-                        <div class="slider-group">
-                            <label>UI Refresh 1000 Hz</label>
-                            <input type="range" min="1" max="100" value="100" class="glass-slider">
-                        </div>
-                        <div class="slider-group">
-                            <label>Blur Refresh 1000 Hz</label>
-                            <input type="range" min="1" max="100" value="80" class="glass-slider">
-                        </div>
-                    </div>
-
-                    <div class="large-panel glass-panel-inner">
-                        <div class="panel-header">
-                            <h3>Network Status</h3>
-                        </div>
-                        <div class="status-indicator">
-                            <div class="pulse-ring"></div>
-                            <span>Secure Connection Established</span>
-                        </div>
-                        <p class="muted-text mt-2">All free heists are currently operating at maximum capacity. Paused due to lack of modders.</p>
-                    </div>
-                </div>
             </section>
 
             <!-- Services View -->
@@ -149,32 +99,13 @@
                 </div>
             </section>
             
-            <!-- Missing Tabs Placeholder -->
+            <!-- Syndicate View -->
             <section id="syndicate" class="view-section">
                 <h1 class="view-title">The Syndicate</h1>
                 <div class="glass-panel-inner">
                     <p class="muted-text">Syndicate member list and leaderboards will be displayed here.</p>
                 </div>
             </section>
-            
-            <section id="settings" class="view-section">
-                <h1 class="view-title">Customize Dashboard</h1>
-                <div class="glass-panel-inner">
-                    <p class="muted-text">Theme customization options (Accent colors, blur intensity) will be available here.</p>
-                </div>
-            </section>
-
-            <!-- Bottom Dock -->
-            <div class="bottom-dock glass-panel">
-                <a href="https://discord.gg/vendetta" target="_blank" class="dock-item active-dock"><i class="fab fa-discord"></i></a>
-                <div class="dock-item"><i class="fas fa-compass"></i></div>
-                <div class="dock-item"><i class="fas fa-comment-dots"></i></div>
-                <div class="dock-item"><i class="fas fa-folder-open"></i></div>
-                <div class="dock-item"><i class="fas fa-image"></i></div>
-                <div class="dock-item"><i class="fas fa-calculator"></i></div>
-                <div class="dock-item"><i class="fas fa-cog"></i></div>
-                <div class="dock-item"><i class="fas fa-heart"></i></div>
-            </div>
         </main>
     </div>
 
