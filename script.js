@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Initialize Particles Background
+
     if (window.particlesJS) {
         particlesJS('particles-js', {
             "particles": {
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Loading Screen & Live Data Sequence
+
     const loadingScreen = document.getElementById('loading-screen');
     const progressBar = document.getElementById('loading-progress');
     const loadingStatus = document.getElementById('loading-status');
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const gtaFeed = document.getElementById('gta-feed');
     const memberCount = document.getElementById('member-count');
 
-    // Simulate boot sequence
+
     if (loadingScreen && progressBar) {
         setTimeout(() => {
             progressBar.style.width = '40%';
@@ -64,19 +64,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 2500);
     }
 
-    // Trigger Data Injection immediately in the background
+
     injectLiveData();
 
     async function injectLiveData() {
         if (!memberCount) return;
         
         try {
-            // Fetch live Discord data from our Render Python backend
+
             const discordResponse = await fetch('https://vendetta-security-bot.onrender.com/api/discord');
             if (discordResponse.ok) {
                 const data = await discordResponse.json();
                 
-                // Animate Member Count
+
                 let currentCount = 0;
                 const targetCount = data.member_count !== '--' ? data.member_count : 0; 
                 const step = Math.ceil(targetCount / 50) || 1;
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     memberCount.innerText = currentCount;
                 }, 20);
 
-                // Inject Discord Announcements
+
                 if (discordFeed && data.announcements.length > 0) {
                     discordFeed.innerHTML = '';
                     data.announcements.forEach(msg => {
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     discordFeed.innerHTML = '<div class="feed-item">No recent announcements found.</div>';
                 }
 
-                // Inject GTA News
+
                 if (gtaFeed && data.gta_news && data.gta_news.length > 0) {
                     gtaFeed.innerHTML = '';
                     data.gta_news.forEach(msg => {
@@ -143,20 +143,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggles = document.querySelectorAll('.toggle-switch');
     const dockItems = document.querySelectorAll('.dock-item');
 
-    // Sidebar Tab Switching
+
     navItems.forEach(item => {
         item.addEventListener('click', () => {
-            // Remove active from all navs
+
             navItems.forEach(nav => nav.classList.remove('active'));
-            // Add active to clicked nav
+
             item.classList.add('active');
 
-            // Hide all views
+
             views.forEach(view => {
                 view.classList.remove('active-view');
             });
 
-            // Show target view
+
             const targetId = item.getAttribute('data-target');
             const targetView = document.getElementById(targetId);
             if (targetView) {
@@ -173,14 +173,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Toggle Switches (Visual only for now)
+
     toggles.forEach(toggle => {
         toggle.addEventListener('click', () => {
             toggle.classList.toggle('active');
         });
     });
     
-    // Bottom dock active states (Optional interaction)
+
     dockItems.forEach(item => {
         item.addEventListener('click', (e) => {
             if(!item.href) {
@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Syndicate Carousel Logic
+
     const roster = [
         { name: "Nx5hh", role: "Founder/Creator", img: "founder.jpg" },
         { name: "Buddy", role: "Service Provider", img: "buddy.png" },
@@ -229,10 +229,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (carouselPanel && carouselPrev && carouselNext) {
-        // Initial render
+
         renderCarouselMember(currentCarouselIndex, 'slide-in-up');
 
-        // Mouse interaction (Tilt)
+
         carouselPanel.addEventListener('mousemove', (e) => {
             if (isAnimating) return;
             const rect = carouselPanel.getBoundingClientRect();

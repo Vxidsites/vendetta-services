@@ -28,7 +28,6 @@ body {
     overflow: hidden;
 }
 
-/* Particle Background */
 #particles-js {
     position: fixed;
     top: 0;
@@ -39,7 +38,6 @@ body {
     background: var(--bg-dark);
 }
 
-/* Top Navigation */
 .top-nav {
     position: fixed;
     top: 0;
@@ -119,16 +117,15 @@ body {
     width: 100%;
 }
 
-/* Website Content Area */
 .website-content {
-    padding-top: 80px; /* Space for top nav */
+    padding-top: 80px; 
     width: 100vw;
     height: 100vh;
     display: flex;
     overflow-y: auto;
 }
 
-/* Views */
+
 .view-section {
     display: none;
     width: 100%;
@@ -137,7 +134,7 @@ body {
 }
 
 .active-view {
-    display: block; /* Allow vertical scrolling */
+    display: block; 
 }
 
 .full-height-center {
@@ -178,7 +175,6 @@ body {
     margin-top: 15px;
 }
 
-/* Hero Split (For Syndicate) */
 .hero-split {
     display: flex;
     width: 90%;
@@ -192,7 +188,6 @@ body {
     padding-right: 50px;
 }
 
-/* Stats Grid */
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -220,7 +215,7 @@ body {
     color: var(--text-muted);
 }
 
-/* Content Panels */
+
 .glass-panel {
     background: rgba(20, 5, 5, 0.4);
     border: 1px solid rgba(255, 50, 50, 0.2);
@@ -258,7 +253,6 @@ body {
     padding-bottom: 10px;
 }
 
-/* Neumorphic/Glass Slider */
 .slider-group {
     display: flex;
     flex-direction: column;
@@ -290,7 +284,6 @@ body {
     cursor: pointer;
 }
 
-/* Loading Screen */
 .loading-screen {
     position: fixed;
     top: 0;
@@ -363,7 +356,6 @@ body {
     to { transform: rotate(360deg); }
 }
 
-/* Live Feeds Grid */
 .mission-section-wrapper {
     width: 100%;
     display: flex;
@@ -470,7 +462,7 @@ body {
     color: #e0e0e0;
 }
 
-/* Services Grid */
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -566,7 +558,7 @@ body {
     box-shadow: 0 0 20px var(--accent);
 }
 
-/* Bottom Dock */
+
 .bottom-dock {
     position: absolute;
     bottom: 0;
@@ -762,7 +754,7 @@ body {
     letter-spacing: 4px;
 }
 
-/* Animations */
+
 .slide-in-right {
     animation: slideInRight 0.5s forwards cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }

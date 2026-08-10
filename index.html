@@ -10,7 +10,6 @@
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
-    <!-- Cinematic Loading Screen -->
     <div id="loading-screen" class="loading-screen">
         <div class="loading-content">
             <img src="logo.jpg" alt="Loading" class="loading-logo spinning-logo">
@@ -23,10 +22,8 @@
         </div>
     </div>
 
-    <!-- Particle Background -->
     <div id="particles-js" class="fluid-bg"></div>
 
-    <!-- Main Website UI -->
     <nav class="top-nav glass-panel">
         <div class="nav-brand">
             <div class="logo-container">
@@ -45,7 +42,6 @@
     </nav>
 
     <main class="website-content">
-        <!-- Dashboard View -->
         <section id="home" class="view-section active-view">
             <div class="full-height-center">
                 <div class="view-content-wrapper">
@@ -90,28 +86,24 @@
                         <i class="fas fa-satellite-dish" style="color: var(--accent); margin-right: 5px;"></i> * Live feeds may take up to 60s to connect.
                     </div>
                     <div class="live-feeds-grid">
-                    <!-- Discord Announcements -->
                     <div class="feed-panel premium-mission-card">
                         <div class="feed-header">
                             <i class="fab fa-discord feed-icon" style="color: #5865F2;"></i>
                             <h2 class="feed-title">Live Announcements</h2>
                         </div>
                         <div class="feed-content" id="discord-feed">
-                            <!-- Skeleton Loaders -->
                             <div class="skeleton-loader"></div>
                             <div class="skeleton-loader"></div>
                             <div class="skeleton-loader"></div>
                         </div>
                     </div>
 
-                    <!-- GTA 5 News -->
                     <div class="feed-panel premium-mission-card">
                         <div class="feed-header">
                             <i class="fas fa-newspaper feed-icon" style="color: var(--accent);"></i>
                             <h2 class="feed-title">GTA 5 Online News</h2>
                         </div>
                         <div class="feed-content" id="gta-feed">
-                            <!-- Skeleton Loaders -->
                             <div class="skeleton-loader"></div>
                             <div class="skeleton-loader"></div>
                             <div class="skeleton-loader"></div>
@@ -121,7 +113,6 @@
             </div>
         </section>
 
-        <!-- Services View -->
         <section id="services" class="view-section">
             <div class="full-height-center">
                 <div class="view-content-wrapper">
@@ -168,7 +159,6 @@
             </div>
         </section>
         
-        <!-- Syndicate View -->
         <section id="syndicate" class="view-section">
             <div class="full-height-center">
                 <div class="hero-split">
@@ -179,7 +169,6 @@
                     <div class="carousel-container">
                         <button id="carousel-prev" class="carousel-nav-btn"><i class="fas fa-chevron-left"></i></button>
                         <div class="carousel-panel-wrapper glass-panel" id="carousel-panel">
-                            <!-- Content injected via JS -->
                         </div>
                         <button id="carousel-next" class="carousel-nav-btn"><i class="fas fa-chevron-right"></i></button>
                     </div>
@@ -187,8 +176,6 @@
             </div>
         </section>
     </main>
-
-    <!-- Old Modal Removed -->
 
     <script src="script.js"></script>
 </body>
