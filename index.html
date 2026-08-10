@@ -3,209 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vendetta Services | Premium GTA Modding</title>
+    <title>Vendetta Services</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="scroll-progress-bar"></div>
-    <div class="scanlines"></div>
-    <div class="cursor-spotlight" id="spotlight"></div>
-    
-    <!-- Custom Right Click Menu -->
-    <div id="custom-menu" class="liquid-panel">
-        <ul>
-            <li><a href="#about"><i class="fas fa-info-circle"></i> Network Info</a></li>
-            <li><a href="https://discord.gg/3mjUGsxVy8" target="_blank"><i class="fab fa-discord"></i> Join Syndicate</a></li>
-            <li><a href="#services"><i class="fas fa-box"></i> View Packages</a></li>
-            <li id="menu-close"><i class="fas fa-times"></i> Close Terminal</li>
-        </ul>
+    <!-- Animated Fluid Background -->
+    <div class="fluid-bg">
+        <div class="blob red-blob-1"></div>
+        <div class="blob red-blob-2"></div>
+        <div class="blob black-blob"></div>
     </div>
 
-    <!-- Live Hacker Notifications -->
-    <div id="notification-container"></div>
-    <!-- Terminal Boot-Up Screen -->
-    <div id="loader">
-        <div class="terminal">
-            <div class="terminal-line" id="term-line-1"></div>
-            <div class="terminal-line" id="term-line-2"></div>
-            <div class="terminal-line" id="term-line-3"></div>
-            <div class="terminal-cursor" id="term-cursor">_</div>
-        </div>
-    </div>
-
-    <!-- Ambient Liquid Glass Background -->
-    <div class="ambient-background"></div>
-    <canvas id="ember-canvas"></canvas>
-    <div class="vignette"></div>
-
-    <nav class="navbar liquid-panel">
-        <div class="nav-content">
-            <div class="logo">
-                <span class="glitch-text" data-text="VENDETTA">VENDETTA</span>
-                <span class="accent">SERVICES</span>
-            </div>
-            <div class="nav-links">
-                <a href="#home" class="active">Terminal</a>
-                <a href="#system">The System</a>
-                <a href="#founder">The Syndicate</a>
-            </div>
-            <a href="https://discord.gg/3mjUGsxVy8" target="_blank" class="btn btn-primary"><i class="fab fa-discord"></i> Connect</a>
-        </div>
-    </nav>
-
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <!-- 3D Spinning Icon -->
-                <div class="icon-container">
-                    <img src="logo.jpg" alt="Vendetta Icon" class="spinning-icon">
+    <!-- Main App UI -->
+    <div class="app-container">
+        
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar glass-panel">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <img src="logo.jpg" alt="Vendetta Logo" class="app-logo">
                 </div>
+                <h2>Vendetta</h2>
+            </div>
 
-                <h1 class="hero-title">UNTOUCHABLE <br><span class="accent glitch-hover">GTA MODDING</span></h1>
-                <p class="hero-subtitle">The definitive underground service for secure, fast, and free GTA 5 heists. We run the city.</p>
+            <ul class="nav-links">
+                <li class="active" data-target="home"><i class="fas fa-home"></i> <span>Dashboard</span></li>
+                <li data-target="services"><i class="fas fa-server"></i> <span>Services</span></li>
+                <li data-target="syndicate"><i class="fas fa-users"></i> <span>The Syndicate</span></li>
+                <li data-target="settings"><i class="fas fa-cog"></i> <span>Customize</span></li>
+            </ul>
+
+            <div class="user-profile glass-panel-inner">
+                <div class="avatar">V</div>
+                <div class="user-info">
+                    <span class="username">Guest_001</span>
+                    <span class="status">Connected</span>
+                </div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar glass-panel">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search operations...">
+                </div>
+                <div class="top-controls">
+                    <i class="fas fa-bolt active-icon"></i>
+                    <i class="fas fa-tachometer-alt"></i>
+                    <i class="fas fa-bell"></i>
+                </div>
+            </header>
+
+            <!-- Dashboard View -->
+            <section id="home" class="view-section active-view">
+                <h1 class="view-title">System Overview</h1>
                 
-                <div class="hero-actions">
-                    <a href="https://discord.gg/3mjUGsxVy8" target="_blank" class="btn btn-glow">Enter the Network</a>
-                </div>
-
-                <div class="stats-container liquid-panel reveal">
-                    <div class="stat-box">
+                <div class="stats-grid">
+                    <div class="stat-card glass-panel-inner">
                         <i class="fas fa-users accent"></i>
-                        <h3 id="discord-member-count">48+</h3>
-                        <p>Syndicate Members</p>
+                        <div class="stat-info">
+                            <h3>48+</h3>
+                            <p>Members</p>
+                        </div>
                     </div>
-                    <div class="stat-box">
+                    <div class="stat-card glass-panel-inner">
                         <i class="fas fa-shield-alt accent"></i>
-                        <h3>0%</h3>
-                        <p>Ban Risk</p>
+                        <div class="stat-info">
+                            <h3>0%</h3>
+                            <p>Ban Risk</p>
+                        </div>
                     </div>
-                    <div class="stat-box">
-                        <i class="fas fa-bolt accent"></i>
-                        <h3>Fast</h3>
-                        <p>Setup Skips</p>
-                    </div>
-                    <div class="stat-box">
+                    <div class="stat-card glass-panel-inner">
                         <i class="fas fa-gem accent"></i>
-                        <h3>3.1M</h3>
-                        <p>Max Payouts</p>
+                        <div class="stat-info">
+                            <h3>3.1M</h3>
+                            <p>Max Payouts</p>
+                        </div>
                     </div>
-                    <div class="stat-box">
+                    <div class="stat-card glass-panel-inner">
                         <i class="fas fa-server accent"></i>
-                        <h3>24/7</h3>
-                        <p>Uptime</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- New Free Heist System Section -->
-        <section id="system" class="system-section">
-            <h2 class="section-title reveal">THE <span class="accent">SYSTEM</span></h2>
-            <p class="section-desc reveal">We do not accept real money. We operate on a strict invite-only economy.</p>
-            
-            <div class="steps-grid">
-                <div class="step-card liquid-panel reveal">
-                    <div class="step-icon"><i class="fas fa-gift"></i></div>
-                    <h3>1ST HEIST FREE</h3>
-                    <p>Everyone who joins the network gets their first modded heist completely free. No strings attached. Collect your 3.1M payout instantly.</p>
-                </div>
-                <div class="step-card liquid-panel reveal">
-                    <div class="step-icon"><i class="fas fa-user-plus"></i></div>
-                    <h3>INVITE TO EARN</h3>
-                    <p>Want unlimited back-to-back heists? Generate your custom invite link. For every 3 people that join through your link, you earn another heist.</p>
-                </div>
-                <div class="step-card liquid-panel reveal">
-                    <div class="step-icon"><i class="fas fa-bolt"></i></div>
-                    <h3>INSTANT SKIP</h3>
-                    <p>Our Hosts use modded scripts to instantly skip all setups. You load into the finale and get the payout cutscene immediately.</p>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="https://discord.gg/3mjUGsxVy8" target="_blank" class="btn btn-primary" style="padding: 1rem 3rem; font-size: 1.2rem;">Claim Free Heist</a>
-            </div>
-        </section>
-
-        <section id="founder" class="founder-section">
-            <h2 class="section-title reveal">THE <span class="accent">SYNDICATE</span></h2>
-            <p class="section-desc reveal">The masterminds behind Vendetta Services.</p>
-            
-            <div class="carousel-container">
-                <button id="prevBtn" class="carousel-btn liquid-panel"><i class="fas fa-chevron-left"></i></button>
-                <div class="carousel-track-wrapper">
-                    <div class="team-container" id="team-track">
-                        <div class="founder-card liquid-panel">
-                            <img src="nx5hh.png" alt="Nx5hh Profile" class="founder-pfp">
-                            <div class="founder-info">
-                                <h3 class="glitch-text" data-text="Nx5hh">Nx5hh</h3>
-                                <p class="founder-role accent">Founder & Lead Developer</p>
-                            </div>
-                        </div>
-
-                        <div class="founder-card liquid-panel">
-                            <img src="dxtr.png" alt="Graysnyper Profile" class="founder-pfp">
-                            <div class="founder-info">
-                                <h3 class="glitch-text" data-text="Graysnyper">Graysnyper</h3>
-                                <p class="founder-role accent">Admin</p>
-                            </div>
-                        </div>
-
-                        <div class="founder-card liquid-panel">
-                            <img src="support_pfp.png" alt="DaGoat12 Profile" class="founder-pfp">
-                            <div class="founder-info">
-                                <h3 class="glitch-text" data-text="DaGoat12">DaGoat12</h3>
-                                <p class="founder-role accent">Support</p>
-                            </div>
-                        </div>
-
-                        <div class="founder-card liquid-panel">
-                            <img src="leon.png" alt="leon Profile" class="founder-pfp">
-                            <div class="founder-info">
-                                <h3 class="glitch-text" data-text="leon">leon</h3>
-                                <p class="founder-role accent">Senior Staff</p>
-                            </div>
-                        </div>
-
-                        <div class="founder-card liquid-panel">
-                            <img src="heatymeat.png" alt="Heatymeat Profile" class="founder-pfp">
-                            <div class="founder-info">
-                                <h3 class="glitch-text" data-text="Heatymeat ;)">Heatymeat ;)</h3>
-                                <p class="founder-role accent">Senior Staff</p>
-                            </div>
-                        </div>
-
-                        <div class="founder-card liquid-panel">
-                            <img src="sosa.png" alt="Sosa Profile" class="founder-pfp">
-                            <div class="founder-info">
-                                <h3 class="glitch-text" data-text="Sosa">Sosa</h3>
-                                <p class="founder-role accent">Senior Staff</p>
-                            </div>
-                        </div>
-
-                        <div class="founder-card liquid-panel">
-                            <img src="xxply.png" alt="XXPly_keaxx Profile" class="founder-pfp">
-                            <div class="founder-info">
-                                <h3 class="glitch-text" data-text="XXPly_keaxx">XXPly_keaxx</h3>
-                                <p class="founder-role accent">Service Provider</p>
-                            </div>
+                        <div class="stat-info">
+                            <h3>24/7</h3>
+                            <p>Uptime</p>
                         </div>
                     </div>
                 </div>
-                <button id="nextBtn" class="carousel-btn liquid-panel"><i class="fas fa-chevron-right"></i></button>
+
+                <div class="content-panels">
+                    <div class="large-panel glass-panel-inner">
+                        <div class="panel-header">
+                            <h3>Performance Adjustments</h3>
+                            <div class="toggle-switch active"></div>
+                        </div>
+                        <div class="slider-group">
+                            <label>UI Refresh 1000 Hz</label>
+                            <input type="range" min="1" max="100" value="100" class="glass-slider">
+                        </div>
+                        <div class="slider-group">
+                            <label>Blur Refresh 1000 Hz</label>
+                            <input type="range" min="1" max="100" value="80" class="glass-slider">
+                        </div>
+                    </div>
+
+                    <div class="large-panel glass-panel-inner">
+                        <div class="panel-header">
+                            <h3>Network Status</h3>
+                        </div>
+                        <div class="status-indicator">
+                            <div class="pulse-ring"></div>
+                            <span>Secure Connection Established</span>
+                        </div>
+                        <p class="muted-text mt-2">All free heists are currently operating at maximum capacity. Paused due to lack of modders.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services View -->
+            <section id="services" class="view-section">
+                <h1 class="view-title">Free Services</h1>
+                <div class="services-grid">
+                    <div class="service-card glass-panel-inner">
+                        <i class="fas fa-sack-dollar"></i>
+                        <h3>Free Heists</h3>
+                        <p>100% free money drops and heist skips. Currently paused.</p>
+                        <button class="glass-btn">Join Queue</button>
+                    </div>
+                    <div class="service-card glass-panel-inner">
+                        <i class="fas fa-car"></i>
+                        <h3>Custom Vehicles</h3>
+                        <p>Modded vehicles spawned directly to your garage.</p>
+                        <button class="glass-btn">Request</button>
+                    </div>
+                    <div class="service-card glass-panel-inner">
+                        <i class="fas fa-level-up-alt"></i>
+                        <h3>RP Boosts</h3>
+                        <p>Fast track your account level safely.</p>
+                        <button class="glass-btn">Learn More</button>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Missing Tabs Placeholder -->
+            <section id="syndicate" class="view-section">
+                <h1 class="view-title">The Syndicate</h1>
+                <div class="glass-panel-inner">
+                    <p class="muted-text">Syndicate member list and leaderboards will be displayed here.</p>
+                </div>
+            </section>
+            
+            <section id="settings" class="view-section">
+                <h1 class="view-title">Customize Dashboard</h1>
+                <div class="glass-panel-inner">
+                    <p class="muted-text">Theme customization options (Accent colors, blur intensity) will be available here.</p>
+                </div>
+            </section>
+
+            <!-- Bottom Dock -->
+            <div class="bottom-dock glass-panel">
+                <a href="https://discord.gg/vendetta" target="_blank" class="dock-item active-dock"><i class="fab fa-discord"></i></a>
+                <div class="dock-item"><i class="fas fa-compass"></i></div>
+                <div class="dock-item"><i class="fas fa-comment-dots"></i></div>
+                <div class="dock-item"><i class="fas fa-folder-open"></i></div>
+                <div class="dock-item"><i class="fas fa-image"></i></div>
+                <div class="dock-item"><i class="fas fa-calculator"></i></div>
+                <div class="dock-item"><i class="fas fa-cog"></i></div>
+                <div class="dock-item"><i class="fas fa-heart"></i></div>
             </div>
-        </section>
-    </main>
+        </main>
+    </div>
 
-    <footer>
-        <div class="footer-content liquid-panel">
-            <div class="logo">VENDETTA <span class="accent">SERVICES</span></div>
-            <p>&copy; 2026 Vendetta Network. We run the underground.</p>
-        </div>
-    </footer>
-
-    <!-- 3D Tilt Script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
