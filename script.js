@@ -22,6 +22,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetView = document.getElementById(targetId);
             if (targetView) {
                 targetView.classList.add('active-view');
+                if (targetId === 'syndicate') {
+                    const cPanel = document.getElementById('carousel-panel');
+                    if(cPanel) {
+                        cPanel.classList.remove('slide-in-up', 'slide-in-right', 'slide-in-left');
+                        void cPanel.offsetWidth; 
+                        cPanel.classList.add('slide-in-up');
+                    }
+                }
             }
         });
     });
@@ -83,7 +91,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (carouselPanel && carouselPrev && carouselNext) {
         // Initial render
-        renderCarouselMember(currentCarouselIndex, '');
+        renderCarouselMember(currentCarouselIndex, 'slide-in-up');
+
+        // Mouse interaction (Tilt)
+        carouselPanel.addEventListener('mousemove', (e) => {
+            if (isAnimating) return;
+            const rect = carouselPanel.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = ((y - centerY) / centerY) * -15; 
+            const rotateY = ((x - centerX) / centerX) * 15;
+            
+            carouselPanel.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+
+        carouselPanel.addEventListener('mouseleave', () => {
+            if (isAnimating) return;
+            carouselPanel.style.transform = `perspective(1000px) rotateX(0) rotateY(0)`;
+        });
 
         carouselNext.addEventListener('click', () => {
             if (isAnimating) return;
