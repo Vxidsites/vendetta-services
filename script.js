@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 "shape": { "type": "circle" },
                 "opacity": { "value": 0.3, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false } },
                 "size": { "value": 3, "random": true },
+                "line_linked": {
+                    "enable": true,
                     "distance": 150,
                     "color": "#ff3333",
                     "opacity": 0.4,
