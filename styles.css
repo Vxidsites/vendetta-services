@@ -557,6 +557,11 @@ body {
     box-shadow: 0 0 20px var(--red-glow);
 }
 
+img.member-avatar {
+    object-fit: cover;
+    background: transparent;
+}
+
 .member-info h3 {
     font-size: 1.2rem;
     margin-bottom: 5px;
