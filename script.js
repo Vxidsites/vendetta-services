@@ -104,13 +104,15 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const rotateX = ((y - centerY) / centerY) * -15; 
             const rotateY = ((x - centerX) / centerX) * 15;
+            const translateX = ((x - centerX) / centerX) * 15;
+            const translateY = ((y - centerY) / centerY) * 15;
             
-            carouselPanel.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            carouselPanel.style.transform = `perspective(1000px) translate(${translateX}px, ${translateY}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
         });
 
         carouselPanel.addEventListener('mouseleave', () => {
             if (isAnimating) return;
-            carouselPanel.style.transform = `perspective(1000px) rotateX(0) rotateY(0)`;
+            carouselPanel.style.transform = `perspective(1000px) translate(0px, 0px) rotateX(0) rotateY(0)`;
         });
 
         carouselNext.addEventListener('click', () => {

@@ -555,6 +555,13 @@ body {
     transition: all 0.3s ease;
     box-shadow: 0 0 15px var(--red-glow);
     z-index: 10;
+    opacity: 0; /* Arrows hidden by default */
+    pointer-events: none;
+}
+
+.carousel-container:hover .carousel-nav-btn {
+    opacity: 1; /* Arrows fade in on hover */
+    pointer-events: auto;
 }
 
 .carousel-nav-btn:hover {
@@ -564,8 +571,7 @@ body {
 }
 
 .carousel-panel-wrapper {
-    width: 90%;
-    max-width: 420px;
+    width: 280px;
     height: 520px;
     display: flex;
     flex-direction: column;
@@ -574,8 +580,18 @@ body {
     text-align: center;
     position: relative;
     opacity: 1;
-    transform: perspective(1000px) rotateX(0) rotateY(0);
+    transform: perspective(1000px) translate(0px, 0px) rotateX(0) rotateY(0);
     transition: transform 0.1s ease-out; /* For JS tilt */
+    /* Glossy Mobile Card Look */
+    border-radius: 35px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        inset 0 0 20px rgba(255,255,255,0.05),
+        inset 0 0 10px rgba(255,255,255,0.1),
+        0 15px 35px rgba(0,0,0,0.5),
+        0 0 20px rgba(255, 50, 50, 0.2);
+    backdrop-filter: blur(20px);
 }
 
 .carousel-avatar {
