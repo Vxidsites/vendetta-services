@@ -221,6 +221,22 @@ body {
 }
 
 /* Content Panels */
+.glass-panel {
+    background: rgba(20, 5, 5, 0.4);
+    border: 1px solid rgba(255, 50, 50, 0.2);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4), inset 0 0 20px rgba(255,50,50,0.05);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+}
+
+.glass-panel-inner {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+}
+
 .content-panels {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -458,26 +474,81 @@ body {
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 30px;
+    width: 100%;
 }
 
 .service-card {
+    padding: 40px 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 15px;
+    gap: 20px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
 }
 
-.service-card i {
-    font-size: 3rem;
-    color: var(--accent);
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.05), transparent);
+    transform: skewX(-25deg);
+    transition: 0.5s;
+}
+
+.service-card:hover::before {
+    left: 150%;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 30px rgba(255,50,50,0.2);
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255, 50, 50, 0.1);
+    border: 2px solid var(--accent);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    color: var(--text-main);
+    box-shadow: 0 0 20px var(--red-glow);
+    transition: 0.3s;
+}
+
+.service-card:hover .service-icon {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 0 40px var(--red-glow-strong);
+    transform: scale(1.1) rotate(5deg);
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.service-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    flex-grow: 1;
 }
 
 .glass-btn {
-    margin-top: auto;
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     background: rgba(255, 50, 50, 0.1);
     border: 1px solid var(--accent);
     color: var(--text-main);
@@ -485,11 +556,14 @@ body {
     cursor: pointer;
     font-weight: 600;
     transition: 0.3s;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
 }
 
 .glass-btn:hover {
     background: var(--accent);
-    box-shadow: 0 0 15px var(--red-glow-strong);
+    box-shadow: 0 0 20px var(--accent);
 }
 
 /* Bottom Dock */

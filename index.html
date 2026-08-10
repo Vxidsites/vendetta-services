@@ -85,7 +85,11 @@
             </div>
 
             <div class="mission-section-wrapper">
-                <div class="live-feeds-grid">
+                <div style="display: flex; flex-direction: column; width: 100%; align-items: center;">
+                    <div style="width: 90%; max-width: 1400px; text-align: right; margin-bottom: 15px; color: var(--text-muted); font-size: 0.9rem; letter-spacing: 0.5px;">
+                        <i class="fas fa-satellite-dish" style="color: var(--accent); margin-right: 5px;"></i> * Live feeds may take up to 60s to connect.
+                    </div>
+                    <div class="live-feeds-grid">
                     <!-- Discord Announcements -->
                     <div class="feed-panel premium-mission-card">
                         <div class="feed-header">
@@ -121,25 +125,43 @@
         <section id="services" class="view-section">
             <div class="full-height-center">
                 <div class="view-content-wrapper">
-                    <h1 class="hero-title">Free Services</h1>
+                    <h1 class="hero-title" style="text-align: center; margin-bottom: 40px;">Our Services</h1>
                     <div class="services-grid">
-                        <div class="service-card glass-panel-inner">
-                            <i class="fas fa-sack-dollar"></i>
-                            <h3>Free Heists</h3>
-                            <p>100% free money drops and heist skips. Currently paused.</p>
+                        <div class="service-card glass-panel">
+                            <div class="service-icon"><i class="fas fa-sack-dollar"></i></div>
+                            <h3>Money Drops</h3>
+                            <p>100% free stealth money drops and heist skips. 10M+ per lobby.</p>
                             <button class="glass-btn">Join Queue</button>
                         </div>
-                        <div class="service-card glass-panel-inner">
-                            <i class="fas fa-car"></i>
-                            <h3>Custom Vehicles</h3>
-                            <p>Modded vehicles spawned directly to your garage.</p>
+                        <div class="service-card glass-panel">
+                            <div class="service-icon"><i class="fas fa-car"></i></div>
+                            <h3>Modded Vehicles</h3>
+                            <p>Exclusive unreleased and modded vehicles spawned directly to your garage.</p>
                             <button class="glass-btn">Request</button>
                         </div>
-                        <div class="service-card glass-panel-inner">
-                            <i class="fas fa-level-up-alt"></i>
-                            <h3>RP Boosts</h3>
-                            <p>Fast track your account level safely.</p>
+                        <div class="service-card glass-panel">
+                            <div class="service-icon"><i class="fas fa-level-up-alt"></i></div>
+                            <h3>RP Boosting</h3>
+                            <p>Fast track your account level safely. Bypass the grind completely.</p>
                             <button class="glass-btn">Learn More</button>
+                        </div>
+                        <div class="service-card glass-panel">
+                            <div class="service-icon"><i class="fas fa-user-shield"></i></div>
+                            <h3>Modded Accounts</h3>
+                            <p>Pre-modded premium accounts with max stats and billions in the bank.</p>
+                            <button class="glass-btn">View Stock</button>
+                        </div>
+                        <div class="service-card glass-panel">
+                            <div class="service-icon"><i class="fas fa-tshirt"></i></div>
+                            <h3>Rare Outfits</h3>
+                            <p>Unlock unobtainable clothing, duffel bags, and glitched outfits.</p>
+                            <button class="glass-btn">Browse</button>
+                        </div>
+                        <div class="service-card glass-panel">
+                            <div class="service-icon"><i class="fas fa-crosshairs"></i></div>
+                            <h3>PvP Protection</h3>
+                            <p>Godmode lobbies and anti-griefing protection while you sell product.</p>
+                            <button class="glass-btn">Request Backup</button>
                         </div>
                     </div>
                 </div>
