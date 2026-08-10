@@ -106,6 +106,10 @@ document.addEventListener('DOMContentLoaded', () => {
                             </div>
                         `;
                     });
+                } else if (discordFeed) {
+                    discordFeed.innerHTML = '<div class="feed-item">No recent announcements found.</div>';
+                }
+
                 // Inject GTA News
                 if (gtaFeed && data.gta_news && data.gta_news.length > 0) {
                     gtaFeed.innerHTML = '';
