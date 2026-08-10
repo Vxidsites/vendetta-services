@@ -106,42 +106,31 @@ document.addEventListener('DOMContentLoaded', () => {
                             </div>
                         `;
                     });
-                } else if (discordFeed) {
-                    discordFeed.innerHTML = '<div class="feed-item">No recent announcements found.</div>';
+                // Inject GTA News
+                if (gtaFeed && data.gta_news && data.gta_news.length > 0) {
+                    gtaFeed.innerHTML = '';
+                    data.gta_news.forEach(msg => {
+                        const date = new Date(msg.timestamp).toLocaleDateString();
+                        const linkStr = msg.link ? `<a href="${msg.link}" target="_blank" style="color: #fff; text-decoration: none;">${msg.content}</a>` : msg.content;
+                        gtaFeed.innerHTML += `
+                            <div class="feed-item">
+                                <div class="feed-item-header">
+                                    <span><i class="fas fa-rss"></i> ${msg.author}</span>
+                                    <span>${date}</span>
+                                </div>
+                                <div class="feed-item-body">
+                                    <strong>${linkStr}</strong>
+                                </div>
+                            </div>
+                        `;
+                    });
+                } else if (gtaFeed) {
+                    gtaFeed.innerHTML = '<div class="feed-item">No recent GTA news found.</div>';
                 }
             }
         } catch (error) {
             console.error("Failed to fetch live Discord data. Make sure the bot is running.", error);
             if (discordFeed) discordFeed.innerHTML = '<div class="feed-item" style="color:red;">Error: Backend Offline. Make sure keep_alive.py is running.</div>';
-        }
-
-        // Fetch Live GTA News (using IGN GTA 5 RSS feed for real-time news)
-        try {
-            const newsResponse = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www.ign.com/rss/articles/feed?tags=gta-5');
-            if (newsResponse.ok) {
-                const data = await newsResponse.json();
-                if (gtaFeed && data.items) {
-                    gtaFeed.innerHTML = '';
-                    // Take top 3 news items
-                    data.items.slice(0, 3).forEach(item => {
-                        const date = new Date(item.pubDate).toLocaleDateString();
-                        gtaFeed.innerHTML += `
-                            <div class="feed-item">
-                                <div class="feed-item-header">
-                                    <span><i class="fas fa-rss"></i> News</span>
-                                    <span>${date}</span>
-                                </div>
-                                <div class="feed-item-body">
-                                    <strong><a href="${item.link}" target="_blank" style="color: #fff; text-decoration: none;">${item.title}</a></strong>
-                                </div>
-                            </div>
-                        `;
-                    });
-                }
-            }
-        } catch (error) {
-            console.error("Failed to fetch GTA news", error);
-            if (gtaFeed) gtaFeed.innerHTML = '<div class="feed-item" style="color:red;">Error fetching news.</div>';
         }
     }
 
