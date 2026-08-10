@@ -43,68 +43,74 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Member Slider Modal Logic
-    const members = document.querySelectorAll('.member-card');
-    const modal = document.getElementById('member-modal');
-    const modalAvatar = document.getElementById('modal-avatar');
-    const modalName = document.getElementById('modal-name');
-    const modalRole = document.getElementById('modal-role');
-    const closeBtn = document.getElementById('close-modal');
-    const prevBtn = document.getElementById('prev-member');
-    const nextBtn = document.getElementById('next-member');
+    // Syndicate Carousel Logic
+    const roster = [
+        { name: "Nx5hh", role: "Founder/Creator", img: "founder.jpg" },
+        { name: "Buddy", role: "Service Provider", img: "buddy.png" },
+        { name: "XXPly_keaxx", role: "Service Provider", img: "xxply.png" },
+        { name: "Graysnyper", role: "Admin", img: "graysnyper.png" },
+        { name: "Sosa", role: "Senior Staff", img: "sosa.png" },
+        { name: "Heatymeat", role: "Senior Staff", img: "heatymeat.png" },
+        { name: "Leon", role: "Senior Staff", img: "leon.png" },
+        { name: "DaGoat12", role: "Support", img: "dagoat12.png" },
+        { name: "RaiiDen", role: "Trial Support", img: "raiiden.png" },
+        { name: "Er0nzii", role: "Trial Support", img: "eronzii.png" }
+    ];
 
-    let currentIndex = 0;
+    const carouselPanel = document.getElementById('carousel-panel');
+    const carouselPrev = document.getElementById('carousel-prev');
+    const carouselNext = document.getElementById('carousel-next');
 
-    function updateModal(index) {
-        const member = members[index];
-        const img = member.querySelector('.member-avatar');
-        const name = member.querySelector('h3').innerText;
-        const role = member.querySelector('.member-role').innerText;
+    let currentCarouselIndex = 0;
+    let isAnimating = false;
 
-        if (img && img.tagName.toLowerCase() === 'img') {
-            modalAvatar.src = img.src;
-        } else {
-            modalAvatar.src = ''; 
-        }
+    function renderCarouselMember(index, animationClass) {
+        const member = roster[index];
         
-        modalName.innerText = name;
-        modalRole.innerText = role;
+        carouselPanel.className = 'carousel-panel-wrapper glass-panel';
+        void carouselPanel.offsetWidth; // trigger reflow
+
+        if (animationClass) {
+            carouselPanel.classList.add(animationClass);
+        }
+
+        carouselPanel.innerHTML = `
+            <img src="${member.img}" class="carousel-avatar" alt="${member.name}">
+            <h2 class="carousel-name">${member.name}</h2>
+            <div class="carousel-role">${member.role}</div>
+        `;
     }
 
-    members.forEach((card, index) => {
-        card.style.cursor = 'pointer';
-        card.addEventListener('click', () => {
-            currentIndex = index;
-            updateModal(currentIndex);
-            modal.classList.add('active');
-        });
-    });
+    if (carouselPanel && carouselPrev && carouselNext) {
+        // Initial render
+        renderCarouselMember(currentCarouselIndex, '');
 
-    if (closeBtn) {
-        closeBtn.addEventListener('click', () => {
-            modal.classList.remove('active');
-        });
-    }
+        carouselNext.addEventListener('click', () => {
+            if (isAnimating) return;
+            isAnimating = true;
 
-    if (modal) {
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.classList.remove('active');
-            }
+            carouselPanel.classList.add('fade-out-left');
+            
+            setTimeout(() => {
+                currentCarouselIndex = (currentCarouselIndex + 1) % roster.length;
+                renderCarouselMember(currentCarouselIndex, 'slide-in-right');
+                
+                setTimeout(() => { isAnimating = false; }, 500); 
+            }, 400); 
         });
-    }
 
-    if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex > 0) ? currentIndex - 1 : members.length - 1;
-            updateModal(currentIndex);
-        });
-    }
+        carouselPrev.addEventListener('click', () => {
+            if (isAnimating) return;
+            isAnimating = true;
 
-    if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex < members.length - 1) ? currentIndex + 1 : 0;
-            updateModal(currentIndex);
+            carouselPanel.classList.add('fade-out-right');
+            
+            setTimeout(() => {
+                currentCarouselIndex = (currentCarouselIndex - 1 + roster.length) % roster.length;
+                renderCarouselMember(currentCarouselIndex, 'slide-in-left');
+                
+                setTimeout(() => { isAnimating = false; }, 500);
+            }, 400);
         });
     }
 });
