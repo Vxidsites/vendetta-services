@@ -143,4 +143,23 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 400);
         });
     }
+
+    // Scroll Animation Observer for Mission Card
+    const missionCard = document.querySelector('.premium-mission-card');
+    const textContent = document.querySelector('.mission-text-content');
+    const logoContent = document.querySelector('.mission-logo-content');
+
+    if (missionCard && textContent && logoContent) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    textContent.classList.add('animate-in');
+                    logoContent.classList.add('animate-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        
+        observer.observe(missionCard);
+    }
 });
