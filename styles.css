@@ -195,40 +195,121 @@ body {
     padding-right: 50px;
 }
 
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+/* --- V3 Hero Section --- */
+.v-hero-section {
+    text-align: center;
+    padding: 60px 0;
 }
 
-.stat-card {
+.v-hero-title {
+    font-size: 5rem;
+    font-weight: 800;
+    letter-spacing: -2px;
+    background: linear-gradient(135deg, #fff, #ff3333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 40px rgba(255, 0, 50, 0.4);
+    margin-bottom: 10px;
+}
+
+.v-hero-subtitle {
+    font-size: 1.3rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+}
+
+.hero-ctas {
     display: flex;
-    align-items: center;
-    padding: 25px 20px;
     gap: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    cursor: default;
+    justify-content: center;
 }
 
-.stat-card:hover {
+.v-btn {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'Outfit', sans-serif;
+}
+
+.v-btn.primary {
+    background: var(--accent);
+    color: #000;
+    border: none;
+    box-shadow: 0 10px 20px rgba(255, 50, 50, 0.3);
+}
+.v-btn.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(255, 50, 50, 0.5);
+    background: #ff4d4d;
+}
+
+.v-btn.secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+.v-btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+/* --- V3 Bento Grid --- */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+.bento-item {
+    position: relative;
+    overflow: hidden;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.bento-hover {
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.bento-hover:hover {
     transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 10px 30px var(--red-glow-strong), inset 0 0 20px rgba(255, 50, 50, 0.2);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6), inset 0 0 20px rgba(255, 50, 50, 0.2);
     border-color: rgba(255, 100, 100, 0.5);
+    z-index: 10;
 }
 
-.stat-card i {
-    font-size: 2rem;
+.stat-bento {
+    grid-column: span 3;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.stat-bento i {
+    font-size: 2.5rem;
     color: var(--accent);
-    text-shadow: 0 0 15px var(--red-glow-strong);
+    text-shadow: 0 0 20px var(--red-glow-strong);
 }
 
 .stat-info h3 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+.stat-info p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
 }
 
-.stat-info p {
-    font-size: 0.85rem;
-    color: var(--text-muted);
+.feed-bento {
+    min-height: 350px;
 }
 
 
@@ -490,6 +571,8 @@ body {
     color: #e0e0e0;
 }
 
+
+/* Removed old live feeds grid layout */
 
 .services-grid {
     display: grid;

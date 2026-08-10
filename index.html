@@ -44,71 +44,55 @@
         <section id="home" class="view-section active-view">
             <div class="full-height-center">
                 <div class="view-content-wrapper">
-                    <h1 class="hero-title reveal fade-bottom">System Overview</h1>
-                    
-                    <div class="stats-grid reveal fade-bottom" style="transition-delay: 0.1s;">
-                        <div class="stat-card glass-panel-inner">
+                    <div class="v-hero-section reveal fade-bottom">
+                        <h1 class="v-hero-title">VENDETTA</h1>
+                        <p class="v-hero-subtitle">The architects of the digital underground.</p>
+                        <div class="hero-ctas">
+                            <button class="v-btn primary" onclick="document.getElementById('syndicate').scrollIntoView({behavior: 'smooth'})">The Syndicate</button>
+                            <a href="https://discord.gg/3mjUGsxVy8" target="_blank" class="v-btn secondary">Join Discord</a>
+                        </div>
+                    </div>
+
+                    <div class="bento-grid reveal fade-bottom" style="transition-delay: 0.1s;">
+                        <div class="bento-item stat-bento glass-panel-inner bento-hover">
                             <i class="fas fa-users accent"></i>
-                            <div class="stat-info">
-                                <h3 id="member-count">--</h3>
-                            <p>Live Members</p>
-                            </div>
+                            <div class="stat-info"><h3 id="member-count">--</h3><p>Live Members</p></div>
                         </div>
-                        <div class="stat-card glass-panel-inner">
+                        <div class="bento-item stat-bento glass-panel-inner bento-hover">
                             <i class="fas fa-shield-alt accent"></i>
-                            <div class="stat-info">
-                                <h3>0%</h3>
-                                <p>Ban Risk</p>
-                            </div>
+                            <div class="stat-info"><h3>0%</h3><p>Ban Risk</p></div>
                         </div>
-                        <div class="stat-card glass-panel-inner">
+                        <div class="bento-item stat-bento glass-panel-inner bento-hover">
                             <i class="fas fa-gem accent"></i>
-                            <div class="stat-info">
-                                <h3>3.1M</h3>
-                                <p>Max Payouts</p>
-                            </div>
+                            <div class="stat-info"><h3>3.1M</h3><p>Max Payouts</p></div>
                         </div>
-                        <div class="stat-card glass-panel-inner">
+                        <div class="bento-item stat-bento glass-panel-inner bento-hover">
                             <i class="fas fa-server accent"></i>
-                            <div class="stat-info">
-                                <h3>24/7</h3>
-                                <p>Uptime</p>
+                            <div class="stat-info"><h3>24/7</h3><p>Uptime</p></div>
+                        </div>
+
+                        <div class="bento-item feed-bento glass-panel-inner premium-mission-card bento-hover" style="grid-column: span 6;">
+                            <div class="feed-header">
+                                <i class="fab fa-discord feed-icon" style="color: #5865F2;"></i>
+                                <h2 class="feed-title">Live Announcements <span class="live-dot"></span></h2>
+                            </div>
+                            <div class="feed-content" id="discord-feed">
+                                <div class="skeleton-loader"></div>
+                                <div class="skeleton-loader"></div>
+                            </div>
+                        </div>
+
+                        <div class="bento-item feed-bento glass-panel-inner premium-mission-card bento-hover" style="grid-column: span 6;">
+                            <div class="feed-header">
+                                <i class="fas fa-newspaper feed-icon" style="color: var(--accent);"></i>
+                                <h2 class="feed-title">GTA 5 Online News <span class="live-dot"></span></h2>
+                            </div>
+                            <div class="feed-content" id="gta-feed">
+                                <div class="skeleton-loader"></div>
+                                <div class="skeleton-loader"></div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="mission-section-wrapper" style="padding: 0;">
-                <div style="display: flex; flex-direction: column; width: 100%; align-items: center;">
-                    <div style="width: 90%; max-width: 1400px; text-align: right; margin-bottom: 15px; color: var(--text-muted); font-size: 0.9rem; letter-spacing: 0.5px;">
-                        <i class="fas fa-satellite-dish" style="color: var(--accent); margin-right: 5px;"></i> * Live feeds may take up to 60s to connect.
-                    </div>
-                    <div class="live-feeds-grid">
-                    <div class="feed-panel premium-mission-card">
-                        <div class="feed-header">
-                            <i class="fab fa-discord feed-icon" style="color: #5865F2;"></i>
-                            <h2 class="feed-title">Live Announcements <span class="live-dot"></span></h2>
-                        </div>
-                        <div class="feed-content" id="discord-feed">
-                            <div class="skeleton-loader"></div>
-                            <div class="skeleton-loader"></div>
-                            <div class="skeleton-loader"></div>
-                        </div>
-                    </div>
-
-                    <div class="feed-panel premium-mission-card">
-                        <div class="feed-header">
-                            <i class="fas fa-newspaper feed-icon" style="color: var(--accent);"></i>
-                            <h2 class="feed-title">GTA 5 Online News <span class="live-dot"></span></h2>
-                        </div>
-                        <div class="feed-content" id="gta-feed">
-                            <div class="skeleton-loader"></div>
-                            <div class="skeleton-loader"></div>
-                            <div class="skeleton-loader"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-                </div>
                 </div>
             </div>
         </section>
