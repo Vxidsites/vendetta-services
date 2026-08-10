@@ -60,12 +60,12 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 loadingScreen.style.opacity = '0';
                 loadingScreen.style.visibility = 'hidden';
-                
-                // Trigger Data Injection after load
-                injectLiveData();
             }, 500);
         }, 2500);
     }
+
+    // Trigger Data Injection immediately in the background
+    injectLiveData();
 
     async function injectLiveData() {
         if (!memberCount) return;
