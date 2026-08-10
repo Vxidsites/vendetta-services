@@ -227,15 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // --- LEAVE-PAGE TAB NOTIFICATION ---
-    let originalTitle = document.title;
-    document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-            document.title = '⚠️ NETWORK COMPROMISED!';
-        } else {
-            document.title = originalTitle;
-        }
-    });
+    
 
     // --- CUSTOM RIGHT CLICK MENU ---
     const customMenu = document.getElementById('custom-menu');
