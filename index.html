@@ -16,31 +16,29 @@
         <div class="blob black-blob"></div>
     </div>
 
-    <!-- Main App UI -->
-    <div class="app-container">
-        
-        <!-- Sidebar Navigation -->
-        <nav class="sidebar glass-panel">
-            <div class="sidebar-header">
-                <div class="logo-container">
-                    <img src="logo.jpg" alt="Vendetta Logo" class="app-logo">
-                </div>
-                <h2>Vendetta</h2>
+    <!-- Main Website UI -->
+    <nav class="top-nav glass-panel">
+        <div class="nav-brand">
+            <div class="logo-container">
+                <img src="logo.jpg" alt="Vendetta Logo" class="app-logo">
             </div>
+            <h2>Vendetta</h2>
+        </div>
+        <ul class="nav-links">
+            <li class="active" data-target="home">Overview</li>
+            <li data-target="services">Services</li>
+            <li data-target="syndicate">The Syndicate</li>
+            <a href="https://discord.gg/vendetta" target="_blank" style="text-decoration: none;">
+                <li>Discord</li>
+            </a>
+        </ul>
+    </nav>
 
-            <ul class="nav-links">
-                <li class="active" data-target="home"><i class="fas fa-home"></i> <span>Dashboard</span></li>
-                <li data-target="services"><i class="fas fa-server"></i> <span>Services</span></li>
-                <li data-target="syndicate"><i class="fas fa-users"></i> <span>The Syndicate</span></li>
-                <a href="https://discord.gg/vendetta" target="_blank" style="text-decoration: none;">
-                    <li><i class="fab fa-discord"></i> <span>Discord Server</span></li>
-                </a>
-            </ul>
-        </nav>
-
-            <!-- Dashboard View -->
-            <section id="home" class="view-section active-view">
-                <h1 class="view-title">System Overview</h1>
+    <main class="website-content">
+        <!-- Dashboard View -->
+        <section id="home" class="view-section active-view">
+            <div class="view-content-wrapper">
+                <h1 class="hero-title">System Overview</h1>
                 
                 <div class="stats-grid">
                     <div class="stat-card glass-panel-inner">
@@ -72,11 +70,13 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Services View -->
-            <section id="services" class="view-section">
-                <h1 class="view-title">Free Services</h1>
+        <!-- Services View -->
+        <section id="services" class="view-section">
+            <div class="view-content-wrapper">
+                <h1 class="hero-title">Free Services</h1>
                 <div class="services-grid">
                     <div class="service-card glass-panel-inner">
                         <i class="fas fa-sack-dollar"></i>
@@ -97,11 +97,16 @@
                         <button class="glass-btn">Learn More</button>
                     </div>
                 </div>
-            </section>
-            
-            <!-- Syndicate View -->
-            <section id="syndicate" class="view-section">
-                <h1 class="view-title">The Syndicate</h1>
+            </div>
+        </section>
+        
+        <!-- Syndicate View -->
+        <section id="syndicate" class="view-section">
+            <div class="hero-split">
+                <div class="hero-text">
+                    <h1 class="hero-title">The Syndicate</h1>
+                    <p class="hero-subtitle">The elite minds behind Vendetta Services. We are the architects of the new digital underground.</p>
+                </div>
                 <div class="carousel-container">
                     <button id="carousel-prev" class="carousel-nav-btn"><i class="fas fa-chevron-left"></i></button>
                     <div class="carousel-panel-wrapper glass-panel" id="carousel-panel">
@@ -109,9 +114,9 @@
                     </div>
                     <button id="carousel-next" class="carousel-nav-btn"><i class="fas fa-chevron-right"></i></button>
                 </div>
-            </section>
-        </main>
-    </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Old Modal Removed -->
 
