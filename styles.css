@@ -241,8 +241,6 @@ body {
     -webkit-backdrop-filter: blur(25px);
     border-radius: 16px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.5), inset 0 0 15px rgba(255, 0, 50, 0.1);
-    position: relative;
-    overflow: hidden;
 }
 
 .glass-panel::before {
@@ -255,6 +253,8 @@ body {
 }
 
 .glass-panel-inner {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 15px;
     padding: 20px;
     backdrop-filter: blur(10px);
