@@ -283,6 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 setTimeout(() => { isAnimating = false; }, 500);
             }, 400);
+        });
     }
 
     // Bento 3D Hover Effect
