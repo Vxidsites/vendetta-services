@@ -3,13 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.particlesJS) {
         particlesJS('particles-js', {
             "particles": {
-                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": "#ff3333" },
+                "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": ["#ff3333", "#ff0000", "#ff6666"] },
                 "shape": { "type": "circle" },
-                "opacity": { "value": 0.5, "random": false },
+                "opacity": { "value": 0.3, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false } },
                 "size": { "value": 3, "random": true },
-                "line_linked": {
-                    "enable": true,
                     "distance": 150,
                     "color": "#ff3333",
                     "opacity": 0.4,
@@ -285,6 +283,21 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 400);
         });
     }
+
+    // Scroll Reveal Animations
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 50;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+    window.addEventListener("scroll", reveal);
+    reveal(); // Trigger once on load to show elements initially in viewport
 
 });
 

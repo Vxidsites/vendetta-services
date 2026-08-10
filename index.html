@@ -6,7 +6,7 @@
     <title>Vendetta Services</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
@@ -44,9 +44,9 @@
         <section id="home" class="view-section active-view">
             <div class="full-height-center">
                 <div class="view-content-wrapper">
-                    <h1 class="hero-title">System Overview</h1>
+                    <h1 class="hero-title reveal fade-bottom">System Overview</h1>
                     
-                    <div class="stats-grid">
+                    <div class="stats-grid reveal fade-bottom" style="transition-delay: 0.1s;">
                         <div class="stat-card glass-panel-inner">
                             <i class="fas fa-users accent"></i>
                             <div class="stat-info">
@@ -86,7 +86,7 @@
                     <div class="feed-panel premium-mission-card">
                         <div class="feed-header">
                             <i class="fab fa-discord feed-icon" style="color: #5865F2;"></i>
-                            <h2 class="feed-title">Live Announcements</h2>
+                            <h2 class="feed-title">Live Announcements <span class="live-dot"></span></h2>
                         </div>
                         <div class="feed-content" id="discord-feed">
                             <div class="skeleton-loader"></div>
@@ -98,7 +98,7 @@
                     <div class="feed-panel premium-mission-card">
                         <div class="feed-header">
                             <i class="fas fa-newspaper feed-icon" style="color: var(--accent);"></i>
-                            <h2 class="feed-title">GTA 5 Online News</h2>
+                            <h2 class="feed-title">GTA 5 Online News <span class="live-dot"></span></h2>
                         </div>
                         <div class="feed-content" id="gta-feed">
                             <div class="skeleton-loader"></div>
@@ -116,7 +116,7 @@
 
         <section id="syndicate" class="view-section">
             <div class="full-height-center">
-                <div class="hero-split">
+                <div class="hero-split reveal fade-bottom">
                     <div class="hero-text">
                         <h1 class="hero-title">The Syndicate</h1>
                         <p class="hero-subtitle">The elite minds behind Vendetta Services. We are the architects of the new digital underground.</p>
