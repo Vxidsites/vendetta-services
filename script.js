@@ -250,8 +250,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         carouselPanel.addEventListener('mouseleave', () => {
-            if (isAnimating) return;
-            carouselPanel.style.transform = `perspective(1000px) translate(0px, 0px) rotateX(0) rotateY(0)`;
+            isAnimating = true;
+            carouselPanel.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+            setTimeout(() => {
+                isAnimating = false;
+            }, 300);
         });
 
         carouselNext.addEventListener('click', () => {
@@ -280,6 +283,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 setTimeout(() => { isAnimating = false; }, 500);
             }, 400);
+        });
+    }
+
+    const pricingModal = document.getElementById('pricing-modal');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+    const priceButtons = document.querySelectorAll('#services .glass-btn');
+
+    if (pricingModal && closeModalBtn && priceButtons.length > 0) {
+        priceButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                pricingModal.classList.add('active');
+            });
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            pricingModal.classList.remove('active');
+        });
+
+        pricingModal.addEventListener('click', (e) => {
+            if (e.target === pricingModal) {
+                pricingModal.classList.remove('active');
+            }
         });
     }
 
